@@ -30,6 +30,7 @@ public class RestauranteController {
 
                             //TESTANDO O GIT GALERA, TESTE TBM E ESCREVA ABAIXO COM O NOME - BRENDO
                             // TESTANDO 2
+                            // ALGUMA COISA AÍ
 
     @GetMapping
     public List<Restaurante> listar() {
