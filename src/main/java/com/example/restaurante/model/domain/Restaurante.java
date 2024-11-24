@@ -25,9 +25,9 @@ public class Restaurante {
     
     private String nomeRestaurante;
     private String cnpj;
-   // private Cliente cliente;
-   // private Proprietario proprietario;
-   // private Mesa mesa;
+    private Cliente cliente;
+    private Proprietario proprietario;
+    private Mesa mesa;
     private Comanda comanda;
 
 
