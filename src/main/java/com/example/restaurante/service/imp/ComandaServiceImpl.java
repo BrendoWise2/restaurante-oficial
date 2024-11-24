@@ -3,12 +3,13 @@ package com.example.restaurante.service.imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import com.example.restaurante.exceptions.ComandoSalvarException;
 import com.example.restaurante.model.domain.Comanda;
 import com.example.restaurante.repository.ComandaRepository;
 import com.example.restaurante.service.ComandaService;
 
+@Service
 public class ComandaServiceImpl implements ComandaService {
 
     @Autowired
