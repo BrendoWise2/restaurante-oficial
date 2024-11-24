@@ -40,6 +40,7 @@ public class RestauranteController {
                         // oiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
                         // oiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
                         // oiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+                        //galllllllllllllllloooooooooooo
     @GetMapping
     public List<Restaurante> listar() {
         return restauranteService.listarRestaurantes();
