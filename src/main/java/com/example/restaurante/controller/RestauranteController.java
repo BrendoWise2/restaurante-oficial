@@ -45,6 +45,7 @@ public class RestauranteController {
                         //TDSVDAGDVGSAVDGAV
                         //FOIIIIIIIIIIIIIIIII ENZO!!!!!!!!!!!!!!!!!!
                         //FDSI TENTE
+                        // CONFERE AI SE ATUALIZOU
     @GetMapping
     public List<Restaurante> listar() {
         return restauranteService.listarRestaurantes();
