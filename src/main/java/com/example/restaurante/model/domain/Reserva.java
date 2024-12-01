@@ -1,6 +1,5 @@
 package com.example.restaurante.model.domain;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -8,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,16 +25,12 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    private Integer numReserva; // Numero da Reserva
-
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
+    @Column(nullable = false)
     protected Cliente cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "mesa_id", nullable = false)
+    @Column(nullable = false)
     protected Mesa mesa;
 
-    protected LocalDate data; //Correção para LocalDate - Brendo
+    protected LocalDateTime data;
 
 }

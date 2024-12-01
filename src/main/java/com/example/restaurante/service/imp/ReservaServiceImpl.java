@@ -18,7 +18,7 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     public Reserva salvar(Reserva reserva) throws ReservaSalvarException {
-        var reservaSalva = reservaRepository.findByNumReserva(reserva.getNumReserva());// coloquei para numero da reserva pois, pode se ter varias reservas no mesmo dia
+        var reservaSalva = reservaRepository.findByData(reserva.getData());
             if(reservaSalva.isPresent()){
                 throw new ReservaSalvarException("Está reserva está ativa");
 

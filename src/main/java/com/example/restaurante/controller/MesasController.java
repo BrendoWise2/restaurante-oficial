@@ -7,17 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import com.example.restaurante.exceptions.MesasSalvarException;
 import com.example.restaurante.model.domain.Mesa;
 import com.example.restaurante.repository.MesasRepository;
 import com.example.restaurante.service.MesasService;
 
 
-@RestController
-@RequestMapping("/mesa")
-public class MesaController {
+public class MesasController {
     
     @Autowired
     private MesasRepository mesasRepository;
@@ -31,12 +28,12 @@ public class MesaController {
             return mesasService.salvar(mesa);
         }
     
-    @GetMapping
+        @GetMapping
         public List<Mesa> listar() {
             return mesasService.listar();
         }
 
-    @GetMapping("/{id}")
+        @GetMapping("/{id}")
         public ResponseEntity<Mesa> buscarPorId(@PathVariable("id") Long id) {
             var mesa = mesasRepository.findById(id);
             if(mesa.isPresent()) {

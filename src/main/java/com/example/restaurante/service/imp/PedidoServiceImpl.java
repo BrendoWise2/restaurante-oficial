@@ -3,15 +3,12 @@ package com.example.restaurante.service.imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.example.restaurante.exceptions.PedidoSalvarException;
 import com.example.restaurante.model.domain.Pedido;
 import com.example.restaurante.repository.PedidoRepository;
 import com.example.restaurante.service.PedidoService;
 
-
-@Service
 public class PedidoServiceImpl implements PedidoService {
 
     @Autowired
@@ -28,6 +25,7 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public List<Pedido> listarPedidos() {
+       
         return pedidoRepository.findAll();
     }
 
