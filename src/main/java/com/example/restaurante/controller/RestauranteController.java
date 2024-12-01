@@ -21,7 +21,7 @@ public class RestauranteController {
     private RestauranteService restauranteService;
 
 
-    @PostMapping
+    @PostMapping                // ESSE VALID AQUI??
     public Restaurante salvar(@Valid @RequestBody Restaurante restaurante) throws RestauranteSalvarException {
         return restauranteService.salvarRestaurante(restaurante);
     }
