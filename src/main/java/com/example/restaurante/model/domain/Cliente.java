@@ -1,6 +1,8 @@
 package com.example.restaurante.model.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 //import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -11,7 +13,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 //import jakarta.validation.constraints.Email;
 //import jakarta.validation.constraints.NotBlank;
@@ -41,12 +45,20 @@ public class Cliente implements Serializable {
     private String cpf;
     private String telefone;
 
-   // @Email
+    //@Email
     private String email;
 
     @ManyToMany
-    @JoinColumn(name = "id_mesa")
-    private Mesa mesa;
+    @JoinTable(
+      name = "cliente_mesa",
+      joinColumns = @JoinColumn(name = "cliente_id"),
+      inverseJoinColumns = @JoinColumn(name = "mesa_id")
+      )
+    private Set<Mesa> mesas = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "id_restaurante")
+    private Restaurante restaurante;
     
     public void setCpf(String cpf) {
         this.cpf = cpf.replaceAll("[^0-9]", "");
