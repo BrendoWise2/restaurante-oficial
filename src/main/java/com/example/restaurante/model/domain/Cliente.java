@@ -1,12 +1,7 @@
 package com.example.restaurante.model.domain;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
-//import org.springframework.boot.context.properties.ConfigurationProperties;
-
-//import org.hibernate.validator.constraints.br.CPF;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,8 +12,10 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-//import jakarta.validation.constraints.Email;
-//import jakarta.validation.constraints.NotBlank;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,13 +36,10 @@ public class Cliente implements Serializable {
     @Column(nullable = false)
     private String nome;
 
-  //  @CPF
-  //  @NotBlank
     @Column(nullable = false)
     private String cpf;
-    private String telefone;
 
-    //@Email
+    private String telefone;
     private String email;
 
     @ManyToMany
@@ -53,13 +47,15 @@ public class Cliente implements Serializable {
       name = "cliente_mesa",
       joinColumns = @JoinColumn(name = "cliente_id"),
       inverseJoinColumns = @JoinColumn(name = "mesa_id")
-      )
+    )
+    @JsonManagedReference // Permite a serialização da lista de mesas
     private Set<Mesa> mesas = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "id_restaurante")
+    @JsonIgnore // Ignora a serialização do restaurante no cliente
     private Restaurante restaurante;
-    
+
     public void setCpf(String cpf) {
         this.cpf = cpf.replaceAll("[^0-9]", "");
     }
